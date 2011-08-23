@@ -1,0 +1,13 @@
+<h1>Albums</h1>
+
+<b>Soundtracks:</b>
+
+<br/>
+<%= @album.title %>:
+<br/>
+
+<%= semantic_form_for @album do |f| %>
+  <%= f.input :soundtracks, :as => :check_boxes, collection: @album.soundtracks.map { |item| [item.title, item.id] } %>
+
+  <%= f.submit 'Buy' %>
+<% end %>
